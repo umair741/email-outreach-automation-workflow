@@ -1,92 +1,88 @@
-📧 Automated Email Outreach Workflow (n8n + Google Sheets)
+# 📧 Automated Email Outreach Workflow (n8n + Google Sheets)
 
-Scale your cold email campaigns with automation, personalization, and tracking — all managed from Google Sheets, powered by n8n
-.
+Scale your cold email campaigns with automation, personalization, and tracking — all managed from Google Sheets, powered by **n8n**.
 
-🚨 Problem
+---
+
+## 🚨 Problem
 
 Traditional outreach is:
 
-⏳ Time-consuming → Manual copy-paste for every lead
+- ⏳ **Time-consuming** → Manual copy-paste for every lead  
+- 😓 **Error-prone** → Risk of duplicates & wrong emails  
+- 📉 **Unscalable** → Hard to manage hundreds of contacts  
+- ❌ **No tracking** → No clear log of who was emailed and when  
 
-😓 Error-prone → Risk of duplicates & wrong emails
+---
 
-📉 Unscalable → Hard to manage hundreds of contacts
-
-❌ No tracking → No clear log of who was emailed and when
-
-✅ Our Solution
+## ✅ Our Solution
 
 This workflow turns outreach into a hands-free automated system:
 
-📂 Fetch Leads – Pulls contacts directly from Google Sheets
+- 📂 **Fetch Leads** – Pulls contacts directly from Google Sheets  
+- 🚦 **Filter** – Skips leads already contacted (`Status = SENT`)  
+- 🎲 **Pick Template** – Randomly chooses an email template from Sheet2  
+- ✍️ **Personalize** – Replaces `[Name]` with each lead’s name  
+- 📤 **Send Email** – Delivers via your domain SMTP (e.g. `info@yourdomain.com`)  
+- 📝 **Log Status** – Updates `SENT` / `Failed` + timestamp in Google Sheets  
+- ⏱ **Delay & Retry** – Adds safe gaps between emails to avoid spam filters  
 
-🚦 Filter – Skips leads already contacted (Status = SENT)
+---
 
-🎲 Pick Template – Randomly chooses an email template from Sheet2
+## 🎯 Benefits
 
-✍️ Personalize – Replaces [Name] with each lead’s name
+- ✨ **Save Time** – Outreach that runs while you work on bigger tasks  
+- ✨ **Higher Replies** – Personalization makes emails stand out  
+- ✨ **Always Tracked** – Status & timestamps logged in Sheets automatically  
+- ✨ **Professional** – Uses your domain email for better trust & delivery  
+- ✨ **Scalable** – Safely handle 100s of leads without burning out  
 
-📤 Send Email – Delivers via your domain SMTP (e.g. info@yourdomain.com)
+---
 
-📝 Log Status – Updates SENT/Failed + timestamp in Google Sheets
+## 📂 Google Sheets Setup
 
-⏱ Delay & Retry – Adds safe gaps between emails to avoid spam filters
+**Sheet1 → Leads**
 
-🎯 Benefits
+| Name     | Email             | Status | Time     |
+|----------|------------------|--------|----------|
+| John Doe | john@example.com |        |          |
+| Jane Doe | jane@example.com | SENT   | 14:25:00 |
 
-✨ Save Time – Outreach that runs while you work on bigger tasks
-✨ Higher Replies – Personalization makes emails stand out
-✨ Always Tracked – Status & timestamps logged in Sheets automatically
-✨ Professional – Uses your domain email for better trust & delivery
-✨ Scalable – Safely handle 100s of leads without burning out
+**Sheet2 → Templates**
 
-📂 Google Sheets Setup
+| Subject               | Body                           |
+|------------------------|--------------------------------|
+| Grow Your Business 🚀 | Hi [Name], I wanted to share… |
+| Quick Question        | Hello [Name], I noticed your… |
 
-Sheet1 → Leads
+---
 
-Name	Email	Status	Time
-John Doe	john@example.com
-		
-Jane Doe	jane@example.com
-	SENT	14:25:00
+## 🛠 Requirements
 
-Sheet2 → Templates
+- [n8n](https://n8n.io) (self-hosted or cloud)  
+- Google Sheets API credentials  
+- SMTP credentials (Gmail, Zoho, or custom domain email)  
+- Leads & templates stored in Google Sheets  
 
-Subject	Body
-Grow Your Business 🚀	Hi [Name], I wanted to share…
-Quick Question	Hello [Name], I noticed your…
-🛠 Requirements
+---
 
-n8n
- (self-hosted or cloud)
+## 🚀 Getting Started
 
-Google Sheets API credentials
+1. Clone this repo  
+2. Import the workflow JSON into n8n  
+3. Add Google Sheets + SMTP credentials  
+4. Update the sender email (`info@yourdomain.com`)  
+5. Run the workflow → Emails are sent & logged automatically 🎉  
 
-SMTP credentials (Gmail, Zoho, or custom domain email)
+---
 
-Leads & templates stored in Google Sheets
+## 💡 Best Use Cases
 
-🚀 Getting Started
+- 📩 Sales lead generation  
+- 👔 Recruiter outreach  
+- 🤝 Client follow-ups  
+- 📢 Startup launch campaigns  
 
-Clone this repo
-
-Import the workflow JSON into n8n
-
-Add Google Sheets + SMTP credentials
-
-Update the sender email (info@yourdomain.com)
-
-Run the workflow → Emails are sent & logged automatically 🎉
-
-💡 Best Use Cases
-
-📩 Sales lead generation
-
-👔 Recruiter outreach
-
-🤝 Client follow-ups
-
-📢 Startup launch campaigns
+---
 
 ⚡ Plug in your leads, templates, and SMTP — and let automation do the heavy lifting.
